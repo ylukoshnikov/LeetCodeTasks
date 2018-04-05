@@ -1,6 +1,12 @@
-public static int lengthOfLastWord(String s) {
-        if (s.equals(null) || s.equals("")) return 0;
-        String[] splitedInput = s.trim().split(" ");
-        int lastWordIndex = splitedInput.length - 1;
-        return splitedInput[lastWordIndex].length();
+ public static int lengthOfLastWord(String s) {
+        int sLength = s.length();
+        int lastWordLength = 0;
+        while (sLength > 0 && s.charAt(sLength - 1) == ' ') {
+            sLength--;
+        }
+        while (sLength > 0 && s.charAt(sLength - 1) != ' ') {
+            lastWordLength++;
+            sLength--;
+        }
+        return lastWordLength;
     }
